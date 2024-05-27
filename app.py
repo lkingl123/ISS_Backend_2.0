@@ -7,14 +7,14 @@ from flask_cors import CORS
 load_dotenv()  # Load environment variables from .env
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for the Flask app
+CORS(app) 
 
 @app.route('/initiate_call', methods=['POST'])
 def initiate_call():
     try:
         # Extract data from incoming request
         data = request.json
-        print("Received data:", data)  # Log the received data
+        print("Received data:", data)  
 
         phone = str(data.get('phone'))  # Convert phone to string
         first_name = data.get('firstName')
@@ -34,7 +34,7 @@ def initiate_call():
         # Ensure AIR_API_KEY is set
         air_api_key = os.environ.get('AIR_API_KEY')
         if not air_api_key:
-            print("AIR_API_KEY is not set")  # Log missing API key
+            print("AIR_API_KEY is not set") 
             return jsonify({"error": "AIR_API_KEY is not set."}), 400
 
         # Log generated values
@@ -71,13 +71,13 @@ def initiate_call():
 
         # Check for successful request
         if response.status_code == 200:
-            print("Call initiated successfully")  # Log success
+            print("Call initiated successfully")
             return jsonify({"message": "Call initiated successfully", "promptId": prompt_id}), 200
         else:
-            print("Failed to initiate call:", response.text)  # Log failure details
+            print("Failed to initiate call:", response.text) 
             return jsonify({"error": "Failed to initiate call", "details": response.text}), response.status_code
     except Exception as e:
-        print("Exception occurred:", str(e))  # Log any exceptions
+        print("Exception occurred:", str(e)) 
         return jsonify({"error": "An error occurred", "details": str(e)}), 500
 
 if __name__ == '__main__':
