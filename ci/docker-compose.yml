@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  lgp-app:
+    build:
+      context: ..
+      dockerfile: ci/Dockerfile
+    container_name: backend-containerize
+    volumes:
+      - .:/backend-containerize # where will this volume be?
+    ports:
+      - "8050:8050"  # Adjust if your app uses a different port
+
