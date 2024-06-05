@@ -1,0 +1,43 @@
+# Byte-compiled / optimized / DLL files
+# __pycache__/
+# *.py[cod]
+# *$py.class
+
+# Caches and logs
+.cache
+*.log
+*.out
+
+# Test directories
+tests/
+*.egg-info/
+
+# Version control system directories
+.git/
+.gitignore
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store  # MacOS file system file
+
+# Local development configurations
+# .env
+# .env.local
+# .poetry-env
+
+# Build artifacts
+# dist/
+# build/
+# *.egg-info/
+
+# Docker related
+docker-compose.yml
+docker-compose.override.yml
+
+# Poetry files
+# poetry.lock
+# pyproject.toml
+

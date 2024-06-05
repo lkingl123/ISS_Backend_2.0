@@ -55,7 +55,8 @@ ENV POETRY_NO_INTERACTION=1 \
     POETRY_VIRTUALENVS_CREATE=1 \
     POETRY_CACHE_DIR=/tmp/poetry_cache
 
-RUN --mount=type=cache,target=$POETRY_CACHE_DIR poetry install --no-root --without test --with prod
+# RUN --mount=type=cache,target=$POETRY_CACHE_DIR poetry install --no-root --without test --with prod
+RUN --mount=type=cache,target=$POETRY_CACHE_DIR poetry install --no-root 
 
 # Stage 2: Run environment with Distroless Python image
 # I chose this image because its hosted on gcr.io and is viewable on Github
